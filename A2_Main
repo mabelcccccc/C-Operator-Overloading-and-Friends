@@ -1,0 +1,101 @@
+#include "A2_MainFunctions.h"
+
+int main ()
+{ 	
+	cout << "StudentID		:731184" << endl;
+    cout << "Student Name	:Roxy Charisse Abastillas Libor" << endl;
+    cout << "-------------------------------------------------" << endl;
+    cout << "Welcome to Assn2 Program!" << endl << endl;
+	
+	int usersChoice = 0;
+	char sortChoice;
+    
+    do
+    {
+        displayMenuOptions ();
+		while (true)
+ 		{
+    		cin >> usersChoice;
+    		if (!cin){
+      			cout << "Please enter a valid choice " << endl;
+      			cin.clear();
+      			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+      			continue;
+    		}
+    		else break;
+  		}
+        cout << endl;
+        
+        switch (usersChoice)
+        {
+            case 1 : 
+				{	
+					InputSensorData();
+				}
+				break;
+				
+       	    case 2 : 
+				{	
+					computeAllArea();
+				}
+				break;
+				
+			case 3 : 
+				{
+					displayAllShapesInVector();	
+				}
+				break;
+				
+			case 4 : 
+				{
+					do
+    				{
+       					displaySortOptions ();
+						cin >> sortChoice; 
+						cout << endl;    
+        				switch (sortChoice)
+        				{
+            				case 'a' : 
+							{	
+								sortAreaAsc();
+							}
+							break;
+					
+							case 'b' : 
+							{	
+								sortAreaDesc();
+							}
+							break;
+							
+							case 'c' : 
+							{
+								sortWarpSpace();
+							}
+							break;	
+						
+            				case 'q' : 
+							{
+								cout << endl << "Returning to main menu.."  << endl; 
+							}
+							break;
+				
+							default: cout <<  "You have entered an invalid value. Please enter a valid option"   ;   
+        				}
+    
+					} while (sortChoice != 'q');
+				}
+				break;	
+            case 8 : 
+				{cout << endl << "Have a nice day!"  << endl << 		endl; }
+				break;
+				
+			default: cout <<  "You have entered an invalid value. Please enter a valid option"   ;   
+        }
+    } while (usersChoice != 8);
+
+	deletionOfPointers();
+	return (0);
+}
+
+
+
